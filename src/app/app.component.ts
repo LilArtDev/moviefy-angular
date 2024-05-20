@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { HttpClient } from '@angular/common/http';
+import { NavbarComponent } from './components/layout/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PokemonListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  providers: [HttpClient],
+  imports: [RouterOutlet, NavbarComponent],
 })
 export class AppComponent {
-  title = 'weather-app';
+  title = 'movies-galery';
 }
