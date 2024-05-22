@@ -1,0 +1,32 @@
+<div
+  class="w-full h-[450px] relative bg-gradient-to-t from-black/90 from-10% to-transparent to-60% overflow-hidden rounded-md shadow-md"
+  (click)="onClick()"
+>
+  <img
+    [src]="item.poster_path | remoteAsset"
+    alt=""
+    srcset=""
+    class="absolute -z-20 w-full h-full object-cover"
+  />
+  <div class="absolute flex w-full justify-between items-center pl-6 pr-4 pt-4">
+    <div class="max-w-[80%] flex-1 flex flex-wrap gap-2">
+      <span
+        *ngFor="let genre of genres"
+        class="bg-black/80 px-2 py-1 text-[11px] rounded-md h-fit"
+      >
+        {{ genre }}
+      </span>
+    </div>
+    <div
+      class="border-[2px] border-yellow-300 bg-black/50 p-2 rounded-[50%] w-[45px] h-[45px] flex z-20 shadow-lg"
+    >
+      <span class="text-[12px] m-auto text-yellow-300">{{
+        item.vote_average.toFixed(2)
+      }}</span>
+    </div>
+  </div>
+  <div class="h-full w-full flex flex-col justify-end px-6 py-4">
+    <h3 class="font-bold text-[24px]">{{ item.title }}</h3>
+    <!-- <p>{{item.overview}}</p> -->
+  </div>
+</div>

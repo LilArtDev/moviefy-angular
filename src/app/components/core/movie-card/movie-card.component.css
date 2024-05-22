@@ -1,0 +1,11 @@
+._circle-box svg {
+  position: relative;
+}
+._circle-box svg circle {
+  fill: none;
+  stroke: white;
+}
+
+._fill-circle {
+  stroke: green;
+}

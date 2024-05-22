@@ -1,0 +1,61 @@
+<main class="py-14 relative">
+  <img
+    *ngIf="movie?.backdrop_path"
+    [src]="movie!.backdrop_path | remoteAsset"
+    alt=""
+    srcset=""
+    class="absolute -z-20 w-full h-[530px] object-cover left-0 -top-14 opacity-90"
+  />
+  <div>
+    <img
+      *ngIf="movie?.poster_path"
+      [src]="movie!.poster_path | remoteAsset"
+      alt=""
+      srcset=""
+      class="w-full h-[450px] rounded-t-md shadow-lg"
+    />
+    <!-- <div class="border-[2px] border-yellow-200 p-2 rounded-[50%] w-[45px] h-[45px] flex  z-20 shadow-lg">
+      <span class="text-[12px] m-auto">{{movie.vote_average.toFixed(2)}}</span>
+    </div> -->
+    <section
+      class="w-full flex flex-col justify-end bg-black-background px-4 pt-6 pb-6 rounded-b-md shadow-lg"
+    >
+      <div class="flex justify-between gap-4 font-semibold">
+        <h5 *ngIf="movie?.release_date">
+          {{ movie!.release_date | yearFormat }}
+        </h5>
+        <span *ngIf="movie?.runtime">{{ movie!.runtime | timeFormat }}</span>
+      </div>
+      <div class="mt-6">
+        <h3 *ngIf="movie?.title" class="font-semibold text-[26px] leading-7">
+          {{ movie!.title }}
+        </h3>
+        <h4 *ngIf="movie?.tagline" class="mt-2 text-pink-200">
+          {{ movie!.tagline }}
+        </h4>
+        <p *ngIf="movie?.overview" class="mt-4 text-[14px]">
+          {{ movie!.overview }}
+        </p>
+      </div>
+      <div class="mt-6">
+        <h5 class="font-semibold">Rating:</h5>
+        <app-rating
+          *ngIf="movie?.vote_average"
+          [rating]="movie!.vote_average"
+        />
+      </div>
+      <div class="mt-6">
+        <h5 class="font-semibold">Genres:</h5>
+        <div *ngIf="movie?.genres" class="flex flex-wrap w-full gap-2">
+          <span *ngFor="let genre of movie!.genres" class="text-[14px]"
+            >{{ genre.name }},
+          </span>
+        </div>
+      </div>
+      <div class="mt-6">
+        <h5 class="font-semibold">Director:</h5>
+        <span class="text-[14px]">Teste Director</span>
+      </div>
+    </section>
+  </div>
+</main>
