@@ -8,8 +8,8 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { MovieCardComponent } from '../../core/movie-card/movie-card.component';
-import { GenresService } from '@/app/services/genres.service';
-import { ListGenresAPIResponse } from '@/app/model/api';
+import { GenresService } from '@/app/services/genres/genres.service';
+import { ListGenresAPIResponse } from '@/app/services/genres';
 
 @Component({
   selector: 'app-movie-list',

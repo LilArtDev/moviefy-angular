@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieListComponent } from '../../common/movie-list/movie-list.component';
-import { MoviesService } from '@/app/services/movies.service';
+import { MoviesService } from '@/app/services/movies/movies.service';
 import { Movie } from '@/app/model/movie';
-import { PaginatedAPIResponse } from '@/app/model/api';
 
 @Component({
   selector: 'app-home',

@@ -1,0 +1,19 @@
+<div
+  class="w-full min-w-[175px] h-auto min-h-[340px] bg-gray-background flex flex-col overflow-hidden rounded-md shadow-md"
+>
+  <div class="h-[255px] bg-white/10 flex">
+    <img
+      [src]="cast.profile_path || '' | remoteAsset : 500"
+      alt="a"
+      class="z-20 relative w-full h-full"
+      *ngIf="cast.profile_path; else fallbackIcon"
+    />
+    <ng-template #fallbackIcon>
+      <fa-icon [icon]="faUser" class="m-auto" size="6x" />
+    </ng-template>
+  </div>
+  <div class="px-3 pt-2 pb-6">
+    <p class="font-thin">{{ cast.name }}</p>
+    <p>{{ cast.character }}</p>
+  </div>
+</div>

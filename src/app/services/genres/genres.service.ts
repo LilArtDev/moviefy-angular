@@ -1,9 +1,8 @@
 import { Injectable, SkipSelf } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { API_BASE_URL } from '../shared/constants';
-import { Movie } from '../model/movie';
-import { ListGenresAPIResponse } from '../model/api';
+import { API_BASE_URL } from '../../shared/constants';
+import { ListGenresAPIResponse } from './genres.interfaces';
 
 @Injectable({
   providedIn: 'root',

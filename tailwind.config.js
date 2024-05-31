@@ -11,9 +11,14 @@ module.exports = {
         "primary-darker": "#B42B51",
         primary: "#E63E6D",
         gray: "#DBD8E3",
+        linen: "#F7EBDE",
+        "sendy-brown": "#FFB685",
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
+      },
+      screens: {
+        "2xl": "1536px",
       },
     },
   },

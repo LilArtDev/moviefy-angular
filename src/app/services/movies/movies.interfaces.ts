@@ -1,18 +1,3 @@
-export interface PaginatedAPIResponse<T> {
-  results: T[];
-  page: number;
-  total_pages: number;
-  total_results: number;
-}
-
-export interface Genre {
-  id: number;
-  name: string;
-}
-export interface ListGenresAPIResponse {
-  genres: Genre[];
-}
-
 export interface MovieDetailsAPIResponse {
   adult: false;
   backdrop_path: '/bQS43HSLZzMjZkcHJz4fGc7fNdz.jpg';
@@ -65,4 +50,21 @@ export interface MovieDetailsAPIResponse {
   video: false;
   vote_average: 7.8;
   vote_count: 3383;
+}
+
+export interface VideoInfo {
+  id: '664df669e9b4172c3413fac5';
+  iso_639_1: 'en';
+  iso_3166_1: 'US';
+  key: 'pwPpguuFkIs';
+  name: 'A Titanic Fight Among the Pyramids';
+  official: true;
+  published_at: '2024-05-21T14:00:41.000Z';
+  site: 'YouTube';
+  size: 1080;
+  type: string;
+}
+
+export interface VideosAPIResponse {
+  results: VideoInfo[];
 }

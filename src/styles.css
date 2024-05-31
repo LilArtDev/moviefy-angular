@@ -14,10 +14,39 @@ html {
   scroll-behavior: smooth;
 }
 
-main {
-  width: 100%;
-  max-width: 100vw;
-  position: relative;
+main,
+nav {
   padding-left: 2rem;
   padding-right: 2rem;
+  width: 100%;
+  max-width: 100vw;
 }
+nav {
+  height: 100px;
+}
+main {
+  margin-top: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@layer utilities {
+}
+
+.limited-section {
+  max-width: 400px;
+}
+
+@media (min-width: 1080px) {
+  .limited-section {
+    max-width: 980px;
+  }
+  main,
+  nav {
+    padding-left: 15% !important;
+    padding-right: 15% !important;
+  }
+}
+
