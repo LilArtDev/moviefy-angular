@@ -1,18 +1,36 @@
-name: Docker Image CI
+name: Deploy Angular to GitHub Pages
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - main
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Build Angular app with Docker
+        run: |
+          docker build --tag moviefy:latest .
+          docker run --rm -v ${{ github.workspace }}/dist:/app/dist moviefy:latest
+
+      - name: Deploy to GitHub Pages
+        run: |
+          npx angular-cli-ghpages --dir=dist/moviefy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
